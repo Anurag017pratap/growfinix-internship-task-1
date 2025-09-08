@@ -158,3 +158,105 @@
 
 </body>
 </html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ Accordion</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+
+  <!-- FAQ Section -->
+  <section class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6">
+    <h2 class="text-3xl font-bold text-center mb-6">Frequently Asked Questions</h2>
+    
+    <!-- FAQ Item -->
+    <div class="faq-item border-b py-4">
+      <button class="faq-btn w-full flex justify-between items-center text-left text-lg font-semibold focus:outline-none">
+        <span>What is Tailwind CSS?</span>
+        <svg class="faq-icon w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0">
+        <p class="mt-3 text-gray-600">Tailwind CSS is a utility-first CSS framework that helps developers build custom designs without leaving their HTML.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item -->
+    <div class="faq-item border-b py-4">
+      <button class="faq-btn w-full flex justify-between items-center text-left text-lg font-semibold focus:outline-none">
+        <span>How does the dark mode work?</span>
+        <svg class="faq-icon w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0">
+        <p class="mt-3 text-gray-600">Dark mode in Tailwind is achieved using the <code>dark:</code> prefix, which applies styles when the <code>dark</code> class is present on the root element.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item -->
+    <div class="faq-item py-4">
+      <button class="faq-btn w-full flex justify-between items-center text-left text-lg font-semibold focus:outline-none">
+        <span>Is this FAQ accessible?</span>
+        <svg class="faq-icon w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0">
+        <p class="mt-3 text-gray-600">Yes ✅ It uses semantic HTML, keyboard navigation, and smooth animations for accessibility and usability.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Script -->
+  <script>
+    const faqButtons = document.querySelectorAll('.faq-btn');
+
+    faqButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector('.faq-icon');
+
+        if (content.classList.contains('max-h-0')) {
+          // Expand
+          content.classList.remove('max-h-0', 'opacity-0');
+          content.classList.add('max-h-screen', 'opacity-100');
+          icon.classList.add('rotate-180');
+        } else {
+          // Collapse
+          content.classList.add('max-h-0', 'opacity-0');
+          content.classList.remove('max-h-screen', 'opacity-100');
+          icon.classList.remove('rotate-180');
+        }
+      });
+
+      // Keyboard accessibility (Enter/Space to toggle)
+      btn.setAttribute("tabindex", "0");
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
