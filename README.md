@@ -163,7 +163,7 @@ Some possible improvements for the project include:
 * Add form submission feedback without browser alerts
 * Improve accessibility with additional ARIA attributes
 * Add animations and micro-interactions
-* Deploy the website using GitHub Pages, Vercel, or Netlify
+
 
 ## 👨‍💻 Author
 
